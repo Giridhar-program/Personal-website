@@ -1,6 +1,11 @@
 .logo{
     text-align: left;
-    font-size: 50px;
+    font-size: 25px;
+}
+nav{
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 ul{
     list-style-type: none;
