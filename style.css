@@ -149,6 +149,9 @@ h1 {
     background-color: #ff6500;
 }
 
+.contact h2{
+    text-align: center;
+}
 /* Footer */
 .footer {
     text-align: center;
