@@ -155,12 +155,67 @@ h1 {
     color: #cccccc;
 }
 
-.contact form {
+.contact-form {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ff8c00;
+    border-radius: 5px;
+    background-color: #121212;
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button.cta {
+    background-color: #ff8c00;
+    color: #121212;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button.cta:hover {
+    background-color: #e67e00;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+#formStatus {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1rem;
+}
+
 
 .contact input, .contact textarea {
     padding: 10px;
@@ -194,6 +249,7 @@ h1 {
     padding: 20px;
     background: #1e1e1e;
     margin-top: 80px;
+    color: #fff;
 }
 
 @keyframes fadeIn {
@@ -204,46 +260,4 @@ h1 {
 @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-}
-
-.personal-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.detail-card {
-    background-color: #1e1e1e;
-    border: 1px solid #ff8c00;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    transition: transform 0.3s ease;
-}
-
-.detail-card:hover {
-    transform: translateY(-5px);
-}
-
-.detail-card h3 {
-    color: #ff8c00;
-    margin-bottom: 10px;
-}
-
-.detail-card p, 
-.detail-card ul {
-    color: #cccccc;
-    font-size: 1rem;
-}
-
-.detail-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.detail-card ul li::before {
-    content: "• ";
-    color: #ff8c00;
 }
