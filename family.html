@@ -12,43 +12,46 @@
       transition: background 0.5s, color 0.5s;
     }
 
-    /* Base styling */
     .family-tree {
       text-align: center;
       margin-top: 50px;
     }
 
     .tree, .tree ul {
-      padding-top: 20px;
       position: relative;
+      padding-top: 20px;
+      list-style: none;
       display: flex;
       justify-content: center;
-      list-style: none;
       flex-wrap: wrap;
     }
 
     .tree li {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      padding: 20px 5px 0 5px;
+    position: relative;
+    text-align: center;
+    padding: 20px 5px 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     }
 
     .tree li::before, .tree li::after {
       content: '';
       position: absolute;
       top: 0;
-      right: 50%;
-      border-top: 2px solid #000;
+      border-top: 2px solid #ffffff; /* pure white */
       width: 50%;
       height: 20px;
     }
 
+    .tree li::before {
+      right: 50%;
+      border-right: 2px solid #ffffff;
+    }
+
     .tree li::after {
-      right: auto;
       left: 50%;
-      border-left: 2px solid #000;
+      border-left: 2px solid #ffffff;
     }
 
     .tree li:only-child::before, .tree li:only-child::after {
@@ -59,12 +62,24 @@
       border: none;
     }
 
+    .tree ul::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 20px;
+      background: #ffffff; /* pure white */
+    }
+
+
     .member {
       text-align: center;
-      background: #f0f8ff;
+      background: #060606;
       padding: 10px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 5px rgba(208, 208, 208, 0.1);
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 1s forwards;
@@ -74,7 +89,7 @@
     .member img {
       width: 80px;
       height: 80px;
-      border: 2px solid #333;
+      border: 2px solid #000000;
       object-fit: cover;
     }
 
@@ -85,7 +100,7 @@
 
 
     .member:hover {
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      box-shadow: 0 0 20px rgba(255, 81, 0, 0.7);
       transform: scale(1.05);
     }
 
@@ -107,15 +122,15 @@
     .side-label {
       font-weight: bold;
       margin-bottom: 10px;
-      background-color: #add8e6;
+      background-color: #FF8C00;
       padding: 8px 16px;
       border-radius: 20px;
-      color: #000;
+      color: #faf7f7;
       font-size: 18px;
     }
 
   .dark-mode {
-      background-color: #121212;
+      background-color: #0c0c0c;
       color: #ffffff;
     }
 
@@ -152,6 +167,47 @@
     .dark-mode-toggle:hover {
       background: #555;
     }
+    details {
+    margin-bottom: 20px;
+    background: transparent;
+    }
+    summary.side-label {
+    list-style: none;
+    cursor: pointer;
+    background-color: #FF8C00;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #faf7f7;
+    font-size: 18px;
+    transition: background 0.3s;
+  }
+
+  summary.side-label:hover {
+    background-color: #e67600;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "➕";
+    float: right;
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+
+  details[open] summary::after {
+    content: "➖";
+  }
+  details:not([open])::before,
+details:not([open])::after,
+details:not([open]) li::before,
+details:not([open]) li::after {
+  display: none;
+}
+
+
   </style>
 </head>
 
@@ -181,50 +237,54 @@
       <li>
         <ul class="tree">
           <li>
-            <div class="side-label">Father's Side</div>
-            <ul class="tree">
-              <li>
-                <div class="member">
-                  <img src="images/grandfather-father-side.jpg" alt="Grandfather Father Side">
-                  <p>Grandfather</p>
-                </div>
-              </li>
-              <li>
-                <div class="member">
-                  <img src="images/grandmother-father-side.jpg" alt="Grandmother Father Side">
-                  <p>Grandmother</p>
-                </div>
-              </li>
-            </ul>
-            <div class="member">
-              <img src="girish.jpg" alt="Father">
-              <p>Father</p>
-            </div>
+            <details open>
+              <summary class="side-label">Father's Side</summary>
+              <ul class="tree">
+                <li>
+                  <div class="member">
+                    <img src="images/grandfather-father-side.jpg" alt="Grandfather Father Side">
+                    <p>Grandfather</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="member">
+                    <img src="images/grandmother-father-side.jpg" alt="Grandmother Father Side">
+                    <p>Grandmother</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="member">
+                <img src="girish.jpg" alt="Father">
+                <p>Father</p>
+              </div>
+            </details>
           </li>
-
+  
           <li>
-            <div class="side-label">Mother's Side</div>
-            <ul class="tree">
-              <li>
-                <div class="member">
-                  <img src="images/grandfather-mother-side.jpg" alt="Grandfather Mother Side">
-                  <p>Grandfather</p>
-                </div>
-              </li>
-              <li>
-                <div class="member">
-                  <img src="images/grandmother-mother-side.jpg" alt="Grandmother Mother Side">
-                  <p>Grandmother</p>
-                </div>
-              </li>
-            </ul>
-            <div class="member">
-              <img src="images/mother.jpg" alt="Mother">
-              <p>Mother</p>
-            </div>
+            <details open>
+              <summary class="side-label">Mother's Side</summary>
+              <ul class="tree">
+                <li>
+                  <div class="member">
+                    <img src="images/grandfather-mother-side.jpg" alt="Grandfather Mother Side">
+                    <p>Grandfather</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="member">
+                    <img src="images/grandmother-mother-side.jpg" alt="Grandmother Mother Side">
+                    <p>Grandmother</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="member">
+                <img src="images/mother.jpg" alt="Mother">
+                <p>Mother</p>
+              </div>
+            </details>
           </li>
         </ul>
-
+  
         <ul class="tree">
           <li>
             <div class="member">
@@ -239,10 +299,11 @@
             </div>
           </li>
         </ul>
-
+  
       </li>
     </ul>
   </section>
+  
 
   <script>
     function toggleDarkMode() {
