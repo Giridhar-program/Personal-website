@@ -2,80 +2,257 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="style-family.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Family Tree with Dark Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-family.css">
+  <style>
+    body {
+      transition: background 0.5s, color 0.5s;
+    }
+
+    /* Base styling */
+    .family-tree {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .tree, .tree ul {
+      padding-top: 20px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .tree li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding: 20px 5px 0 5px;
+    }
+
+    .tree li::before, .tree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      border-top: 2px solid #000;
+      width: 50%;
+      height: 20px;
+    }
+
+    .tree li::after {
+      right: auto;
+      left: 50%;
+      border-left: 2px solid #000;
+    }
+
+    .tree li:only-child::before, .tree li:only-child::after {
+      display: none;
+    }
+
+    .tree li:first-child::before, .tree li:last-child::after {
+      border: none;
+    }
+
+    /* Member box */
+    .member {
+      text-align: center;
+      background: #f0f8ff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInDown 1s forwards;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      object-fit: cover;
+    }
+
+    .member p {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    /* Hover effect */
+    .member:hover {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+      transform: scale(1.05);
+    }
+
+    /* Animation */
+    @keyframes fadeInDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tree li:nth-child(1) .member { animation-delay: 0.2s; }
+    .tree li:nth-child(2) .member { animation-delay: 0.4s; }
+    .tree li:nth-child(3) .member { animation-delay: 0.6s; }
+    .tree li:nth-child(4) .member { animation-delay: 0.8s; }
+    .tree li:nth-child(5) .member { animation-delay: 1s; }
+    .tree li:nth-child(6) .member { animation-delay: 1.2s; }
+
+    /* Side label */
+    .side-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      background-color: #add8e6;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #000;
+      font-size: 18px;
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .dark-mode .member {
+      background: #1e1e1e;
+      border: 1px solid #333;
+    }
+
+    .dark-mode .side-label {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .tree li::before,
+    .dark-mode .tree li::after {
+      border-color: #fff;
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: #333;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .dark-mode-toggle:hover {
+      background: #555;
+    }
+  </style>
 </head>
 
 <body>
-    <header class="header">
-        <ul>
-            <li>
-            <div class="logo">Family and Gallery</div>
-            </li>
-            <li>
-            <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="personal.html">Personal</a>
-                <a href="feedback.html">Feedback</a>
-                <a href="family.html">Family and Gallery</a>
-            </nav>
-            </li>
-        </ul>
-    </header>
-    <section class="section family-tree">
+
+  <header class="header">
+    <ul>
+      <li>
+        <div class="logo">Family and Gallery</div>
+      </li>
+      <li>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="personal.html">Personal</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="family.html">Family and Gallery</a>
+        </nav>
+      </li>
+    </ul>
+  </header>
+
+  <!-- Dark Mode Button -->
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <section class="section family-tree">
+    <ul class="tree">
+      <li>
         <ul class="tree">
-            <li>
-                <ul>
-                    <li>
-                        <div class="member">
-                            <img src="images/father.jpg" alt="Father">
-                            <p>Father</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="member">
-                            <img src="images/mother.jpg" alt="Mother">
-                            <p>Mother</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+          <li>
+            <div class="side-label">Father's Side</div>
+            <ul class="tree">
+              <li>
+                <div class="member">
+                  <img src="images/grandfather-father-side.jpg" alt="Grandfather Father Side">
+                  <p>Grandfather</p>
+                </div>
+              </li>
+              <li>
+                <div class="member">
+                  <img src="images/grandmother-father-side.jpg" alt="Grandmother Father Side">
+                  <p>Grandmother</p>
+                </div>
+              </li>
+            </ul>
+            <div class="member">
+              <img src="images/father.jpg" alt="Father">
+              <p>Father</p>
+            </div>
+          </li>
+
+          <li>
+            <div class="side-label">Mother's Side</div>
+            <ul class="tree">
+              <li>
+                <div class="member">
+                  <img src="images/grandfather-mother-side.jpg" alt="Grandfather Mother Side">
+                  <p>Grandfather</p>
+                </div>
+              </li>
+              <li>
+                <div class="member">
+                  <img src="images/grandmother-mother-side.jpg" alt="Grandmother Mother Side">
+                  <p>Grandmother</p>
+                </div>
+              </li>
+            </ul>
+            <div class="member">
+              <img src="images/mother.jpg" alt="Mother">
+              <p>Mother</p>
+            </div>
+          </li>
         </ul>
+
         <ul class="tree">
-            <li>
-                <ul>
-                    <li>
-                        <div class="member">
-                            <img src="images/me.jpg" alt="me">
-                            <p>ME</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="member">
-                            <img src="images/Sibling.jpg" alt="Sibling">
-                            <p>SIbling</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+          <li>
+            <div class="member">
+              <img src="images/me.jpg" alt="Me">
+              <p>Me</p>
+            </div>
+          </li>
+          <li>
+            <div class="member">
+              <img src="images/sister.jpg" alt="Sister">
+              <p>Sister</p>
+            </div>
+          </li>
         </ul>
-        <ul class="tree">
-            <li>
-                <ul>
-                    <li>
-                        <div class="member">
-                            <img src="images/Grandma.jpg" alt="Grandma">
-                            <p>Grandma</p>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>    
-    </section>
+
+      </li>
+    </ul>
+  </section>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 
 </body>
 
