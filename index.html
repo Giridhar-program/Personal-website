@@ -1,72 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giridhar Girish | Personal Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giridhar Girish | Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">Personal Portfolio</div>
-    </header>
-       
-    <main class="section">
-        <h1>Welcome to My Personal Website</h1>
-        <div class="content-grid">
-            <div class="text-content">
-                <h2>Giridhar Girish</h2>
-                <p>Pursuing <strong>BCA (Honours)</strong> at <br> 
-                   Marian College Kuttikanam, Kerala.</p>
-                <ul>
-                    <li>Passionate about Web Development & Programming</li>
-                    <li>Interested in Software Development & UI/UX</li>
-                </ul>
-                <a href="#about" class="cta">Learn More</a>
-            </div>
-            <div class="image-hover">
-                <img src="WhatsApp Image 2025-03-17 at 19.31.25_7ebf4374.jpg" alt="Giridhar Girish">
-            </div>
+  <header class="header">
+    <div class="logo">Personal Portfolio</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="personal.html">Personal</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="family.html">Family and Gallery</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero">
+      <h1>Welcome to My Personal Website</h1>
+      <div class="content-grid">
+        <div class="text-content">
+          <h2>Giridhar Girish</h2>
+          <p>Pursuing <strong>BCA (Honours)</strong> at <br>
+            Marian College Kuttikanam, Kerala.
+          </p>
+          <ul>
+            <li><strong>Web Development:</strong> Passionate about creating websites and web apps.</li>
+            <li><strong>Programming:</strong> Loves coding and learning new languages.</li>
+            <li><strong>Software Development:</strong> Interested in building reliable software.</li>
+            <li><strong>UI/UX:</strong> Focused on making designs beautiful and user-friendly.</li>
+          </ul>
+          
+          <a href="#about" class="cta">Learn More</a>
         </div>
-    </main>
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>
-            I am a motivated BCA (Honours) student with a keen interest in modern web technologies. 
-            My goal is to create high-quality, user-friendly web applications with 
-            a focus on design, functionality, and performance.
-        </p>
-        <p>
-            Apart from coding, I enjoy exploring new technologies, problem-solving, 
-            and playing football.
-        </p>
-    </section>
-    <section id="portfolio" class="section">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Portfolio Website</h3>
-            <p>Designed a personal portfolio using HTML, CSS, and JavaScript.</p>
+        <div class="image-hover">
+          <img src="WhatsApp Image 2025-03-17 at 19.31.25_7ebf4374.jpg" alt="Giridhar Girish">
         </div>
+      </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <section id="about" class="section about">
+      <h2>About Me</h2>
+      <p>
+        I am a motivated BCA (Honours) student with a keen interest in modern web technologies.
+        My goal is to create high-quality, user-friendly web applications with
+        a focus on design, functionality, and performance.
+      </p>
+      <p>
+        Apart from coding, I enjoy exploring new technologies, problem-solving,
+        and playing football.
+      </p>
     </section>
-    <footer class="footer">
-        <p>&copy; 2025 Giridhar Girish | Student</p>
-    </footer>
-    <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="personal.html">Personal</a>
-        <a href="feedback.html">Feedback</a>
-        <a href="family.html">Family and Gallery</a>
-    </nav>
+
+    <section id="portfolio" class="section portfolio">
+      <h2>My Projects</h2>
+      <div class="project">
+        <h3>Portfolio Website</h3>
+        <p>Designed a personal portfolio using HTML, CSS, and JavaScript.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact Me</h2>
+      <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Giridhar Girish | Student</p>
+  </footer>
 </body>
 </html>
