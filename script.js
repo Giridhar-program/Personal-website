@@ -80,3 +80,35 @@ document.getElementById("feedbackForm").addEventListener("submit", function(even
         formStatus.style.color = "red";
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project');
+  
+    projectCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const techName = this.querySelector('h3').textContent;
+        alert(`You clicked on the ${techName} project!`);
+      });
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        const portfolioSection = document.querySelector('#portfolio');
+        data.projects.forEach(project => {
+          const projectHTML = `
+            <div class="project">
+              <h3>${project.name}</h3>
+              <div class="project-content">
+                <img src="${project.image}" alt="${project.name}" class="tech-icon">
+                <p>${project.description}</p>
+              </div>
+            </div>
+          `;
+          portfolioSection.innerHTML += projectHTML;
+        });
+      })
+      .catch(error => console.log('Error loading JSON:', error));
+  });
