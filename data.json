@@ -1,0 +1,30 @@
+{
+    "projects": [
+      {
+        "name": "HTML",
+        "description": "Created websites using the foundational markup language, HTML.",
+        "image": "img/html.png"
+      },
+      {
+        "name": "CSS",
+        "description": "Styled websites and made them responsive using CSS for better user experience.",
+        "image": "img/css.png"
+      },
+      {
+        "name": "JavaScript",
+        "description": "Implemented interactive elements and functionality using JavaScript.",
+        "image": "img/javascript.png"
+      },
+      {
+        "name": "AJAX",
+        "description": "Used AJAX to dynamically load content without reloading the page for a seamless experience.",
+        "image": "img/ajax.png"
+      },
+      {
+        "name": "JSON",
+        "description": "Worked with JSON for data exchange between server and client-side applications.",
+        "image": "img/json.png"
+      }
+    ]
+  }
+  
